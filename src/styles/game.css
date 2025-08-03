@@ -1,0 +1,317 @@
+/* 游戏主容器 */
+.game {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  text-align: center;
+  background: #faf8ef;
+  min-height: 100vh;
+}
+
+/* 游戏标题 */
+.game-header h1 {
+  font-size: 48px;
+  font-weight: bold;
+  color: #776e65;
+  margin: 0 0 10px 0;
+}
+
+.game-description {
+  color: #776e65;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* 分数区域 */
+.game-status {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.scores {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.score-container {
+  background: #bbada0;
+  color: white;
+  border-radius: 3px;
+  padding: 8px 16px;
+  min-width: 80px;
+  text-align: center;
+}
+
+.score-label {
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.score-value {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+/* 游戏消息 */
+.game-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  text-align: center;
+  min-width: 280px;
+}
+
+.game-message h2 {
+  font-size: 32px;
+  margin: 0 0 10px 0;
+  color: #776e65;
+}
+
+.game-message p {
+  font-size: 16px;
+  color: #776e65;
+  margin-bottom: 20px;
+}
+
+.game-won h2 {
+  color: #f9f6f2;
+  background: #edc22e;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.game-over h2 {
+  color: #f9f6f2;
+  background: #edc53f;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.game-message-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* 游戏网格 */
+.game-board {
+  position: relative;
+  margin: 0 auto 20px;
+  background: #bbada0;
+  border-radius: 6px;
+  padding: 10px;
+  width: 340px;
+  height: 340px;
+}
+
+.grid-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.grid-background {
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+.grid-cell {
+  background: rgba(238, 228, 218, 0.35);
+  border-radius: 3px;
+}
+
+.grid-tiles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* 方块样式 */
+.tile {
+  position: absolute;
+  width: calc(25% - 7.5px);
+  height: calc(25% - 7.5px);
+  background: var(--tile-bg);
+  color: var(--tile-color);
+  border-radius: 3px;
+  font-size: var(--tile-font-size);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease-in-out;
+  top: calc(var(--row) * 25% + var(--row) * 10px + 10px);
+  left: calc(var(--col) * 25% + var(--col) * 10px + 10px);
+}
+
+.tile-new {
+  animation: appear 0.2s ease-in-out;
+}
+
+.tile-merged {
+  animation: merge 0.15s ease-in-out;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes merge {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* 控制按钮 */
+.controls {
+  margin-top: 20px;
+}
+
+.instructions {
+  color: #776e65;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.control-buttons {
+  margin-bottom: 20px;
+}
+
+.restart-button, .continue-button {
+  background: #8f7a66;
+  color: #f9f6f2;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+  margin: 0 5px;
+}
+
+.restart-button:hover, .continue-button:hover {
+  background: #9f8a76;
+}
+
+/* 移动设备控制 */
+.mobile-controls {
+  margin-top: 20px;
+}
+
+.direction-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.middle-row {
+  display: flex;
+  gap: 20px;
+}
+
+.direction-button {
+  background: #8f7a66;
+  color: #f9f6f2;
+  border: none;
+  border-radius: 6px;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.direction-button:hover:not(:disabled) {
+  background: #9f8a76;
+}
+
+.direction-button:disabled {
+  background: #cdc1b4;
+  cursor: not-allowed;
+}
+
+/* 游戏说明 */
+.game-explanation {
+  margin-top: 30px;
+  color: #776e65;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: left;
+  background: #edede0;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+  .game {
+    padding: 10px;
+  }
+  
+  .game-header h1 {
+    font-size: 36px;
+  }
+  
+  .game-board {
+    width: 280px;
+    height: 280px;
+    padding: 8px;
+  }
+  
+  .grid-background {
+    gap: 8px;
+  }
+  
+  .tile {
+    width: calc(25% - 6px);
+    height: calc(25% - 6px);
+    top: calc(var(--row) * 25% + var(--row) * 8px + 8px);
+    left: calc(var(--col) * 25% + var(--col) * 8px + 8px);
+    font-size: calc(var(--tile-font-size) * 0.8);
+  }
+  
+  .mobile-controls {
+    display: block;
+  }
+}
+
+@media (min-width: 481px) {
+  .mobile-controls {
+    display: none;
+  }
+}
