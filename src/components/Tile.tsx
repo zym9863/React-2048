@@ -8,23 +8,23 @@ interface TileProps {
 export const Tile: React.FC<TileProps> = ({ tile }) => {
   const getTileColor = (value: number): string => {
     const colors: { [key: number]: string } = {
-      2: '#eee4da',
-      4: '#ede0c8',
-      8: '#f2b179',
-      16: '#f59563',
-      32: '#f67c5f',
-      64: '#f65e3b',
-      128: '#edcf72',
-      256: '#edcc61',
-      512: '#edc850',
-      1024: '#edc53f',
-      2048: '#edc22e'
+      2: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      4: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+      8: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+      16: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+      32: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+      64: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
+      128: 'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)',
+      256: 'linear-gradient(135deg, #ff8a80 0%, #ffab91 100%)',
+      512: 'linear-gradient(135deg, #81c784 0%, #aed581 100%)',
+      1024: 'linear-gradient(135deg, #64b5f6 0%, #42a5f5 100%)',
+      2048: 'linear-gradient(135deg, #ffc107 0%, #ff9800 100%)'
     };
-    return colors[value] || '#3c3a32';
+    return colors[value] || 'linear-gradient(135deg, #333 0%, #555 100%)';
   };
 
   const getTextColor = (value: number): string => {
-    return value <= 4 ? '#776e65' : '#f9f6f2';
+    return '#ffffff';
   };
 
   const getFontSize = (value: number): string => {
