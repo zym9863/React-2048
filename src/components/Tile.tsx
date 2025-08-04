@@ -23,7 +23,7 @@ export const Tile: React.FC<TileProps> = ({ tile }) => {
     return colors[value] || 'linear-gradient(135deg, #333 0%, #555 100%)';
   };
 
-  const getTextColor = (value: number): string => {
+  const getTextColor = (): string => {
     return '#ffffff';
   };
 
@@ -38,7 +38,7 @@ export const Tile: React.FC<TileProps> = ({ tile }) => {
       className={`tile tile-${tile.value} ${tile.isNew ? 'tile-new' : ''} ${tile.isMerged ? 'tile-merged' : ''}`}
       style={{
         '--tile-bg': getTileColor(tile.value),
-        '--tile-color': getTextColor(tile.value),
+        '--tile-color': getTextColor(),
         '--tile-font-size': getFontSize(tile.value),
         '--row': tile.row,
         '--col': tile.col
