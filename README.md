@@ -1,69 +1,65 @@
-# React + TypeScript + Vite
+**中文** | [English](README_EN.md)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# React 2048 游戏
 
-Currently, two official plugins are available:
+一个使用 React + TypeScript + Vite 构建的经典 2048 益智游戏。
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎮 游戏介绍
 
-## Expanding the ESLint configuration
+2048 是一款数字益智游戏，玩家通过滑动操作合并相同数字的方块，目标是创造出数字 2048 的方块。
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 游戏规则
+- 使用方向键或鼠标滑动来移动方块
+- 当两个相同数字的方块碰撞时，它们会合并成一个数字翻倍的方块
+- 每次移动后，会在空位置随机生成一个新的方块（2 或 4）
+- 当无法进行任何移动时，游戏结束
+- 达到 2048 即获胜，但可以继续游戏挑战更高分数
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🚀 快速开始
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 安装依赖
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 启动开发服务器
+```bash
+npm run dev
 ```
+
+### 构建生产版本
+```bash
+npm run build
+```
+
+### 预览构建结果
+```bash
+npm run preview
+```
+
+## 🛠️ 技术栈
+
+- **React 18** - 用户界面库
+- **TypeScript** - 类型安全的 JavaScript
+- **Vite** - 快速构建工具
+- **CSS3** - 样式和动画
+
+## 📁 项目结构
+
+```
+src/
+├── components/     # React 组件
+├── hooks/         # 自定义 React Hooks
+├── utils/         # 工具函数
+├── types/         # TypeScript 类型定义
+└── styles/        # 样式文件
+```
+
+## 🎯 特性
+
+- 📱 响应式设计，支持移动端和桌面端
+- 🎨 流畅的动画效果
+- 💾 本地存储最高分记录
+- ⌨️ 键盘和触摸操作支持
+- 🔄 撤销功能
+- 🎵 音效支持（可选）
